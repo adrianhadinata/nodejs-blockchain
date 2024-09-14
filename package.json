@@ -1,0 +1,14 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "Blockchain Basic",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrian",
+  "license": "ISC",
+  "dependencies": {
+    "object-hash": "^3.0.0"
+  }
+}
