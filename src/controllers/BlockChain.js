@@ -33,18 +33,6 @@ class BlockChain {
       // Add it to new instance, save it on the DB, then console success
       let newBlock = new blockChainModel(block);
 
-      /* =================================================================== */
-
-      // newBlock.save((error) => {
-      //   if (error) {
-      //     return console.log("Cannot save new block to Database: ", error);
-      //   }
-
-      //   console.log("New block added to chain: ", block);
-      // });
-
-      /* =================================================================== */
-
       newBlock
         .save()
         .then((doc) => {
@@ -60,20 +48,6 @@ class BlockChain {
 
       return block;
     }
-
-    /* ============================= */
-
-    // Hashing the block
-    // this.hash = hash(block);
-
-    // Add to chain
-    // this.chain.push(block);
-
-    // Reset current transaction
-    // this.current_transaction = [];
-
-    // return block;
-    /* ============================= */
   }
 
   // Create new transaction

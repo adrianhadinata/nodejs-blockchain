@@ -1,9 +1,4 @@
 let mongoose = require("mongoose");
-let BlockChainModel = require("../models/blockChainModel");
-
-// Connect to Database
-
-// main().catch((err) => console.log(err));
 
 const connectToDatabase = async () => {
   try {
@@ -42,19 +37,3 @@ const connectToDatabase = async () => {
 };
 
 module.exports = { connectToDatabase };
-
-/* ===================================================================== */
-// mongoose.connect("mongodb://localhost:27017/blockchain", (error) => {
-//   if (error) {
-//     console.log("Cannot connect to Database: ", error);
-//   } else {
-//     console.log("Connected to Database");
-//   }
-// });
-
-// let connectionCallback = () => {};
-
-// module.exports.onConnect = (callback) => {
-//   connectionCallback = callback;
-// };
-/* ===================================================================== */
