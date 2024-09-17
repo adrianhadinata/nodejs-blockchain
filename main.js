@@ -16,9 +16,15 @@ const { connectToDatabase } = require("./src/config/database");
     let blockChain = new BlockChain();
 
     blockChain.addNewTransaction("Adrian", "Hadi", 200);
-    blockChain.addNewBlock(null);
+    (async () => {
+      let getPreviousHash = await blockChain.getLastBlock();
 
-    console.log("Chain: ", blockChain.chain);
+      let previousHash = getPreviousHash ? getPreviousHash.hash : null;
+      console.log("Detected previous hash: ", previousHash);
+      blockChain.addNewBlock(previousHash);
+
+      console.log("Chain: ", blockChain.chain);
+    })();
   } else {
     console.error("Failed to connect to the database, exiting...");
     process.exit(1); // Exit the app if the connection fails

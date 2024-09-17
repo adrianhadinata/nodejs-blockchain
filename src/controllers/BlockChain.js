@@ -3,8 +3,7 @@ let validator = require("../helpers/validator");
 let mongoose = require("mongoose");
 
 const TARGET_HASH = hash(1000);
-
-let blockChainModel = mongoose.model("BlockChain");
+const blockChainModel = require("../models/blockChainModel");
 
 class BlockChain {
   constructor() {
@@ -61,7 +60,10 @@ class BlockChain {
 
   // Get last block on chain
   getLastBlock() {
-    return this.chain.slice(-1)[0];
+    let previousHash = blockChainModel
+      .findOne(undefined, undefined, { sort: { _id: -1 } })
+      .exec();
+    return previousHash;
   }
 
   // Is block empty?
